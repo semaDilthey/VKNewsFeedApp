@@ -7,23 +7,68 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F3BA3D52A3B3249009EE8FC /* NewsFeedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3BA3CF2A3B3249009EE8FC /* NewsFeedPresenter.swift */; };
+		3F3BA3D62A3B3249009EE8FC /* NewsFeedWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3BA3D02A3B3249009EE8FC /* NewsFeedWorker.swift */; };
+		3F3BA3D72A3B3249009EE8FC /* NewsFeedRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3BA3D12A3B3249009EE8FC /* NewsFeedRouter.swift */; };
+		3F3BA3D82A3B3249009EE8FC /* NewsFeedModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3BA3D22A3B3249009EE8FC /* NewsFeedModels.swift */; };
+		3F3BA3D92A3B3249009EE8FC /* NewsFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3BA3D32A3B3249009EE8FC /* NewsFeedViewController.swift */; };
+		3F3BA3DA2A3B3249009EE8FC /* NewsFeedInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3BA3D42A3B3249009EE8FC /* NewsFeedInteractor.swift */; };
+		3F3BA3DC2A3B3864009EE8FC /* NewsFeedViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F3BA3DB2A3B3864009EE8FC /* NewsFeedViewController.storyboard */; };
+		3F60A2832A3B217E006CF568 /* FeedResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F60A2822A3B217D006CF568 /* FeedResponse.swift */; };
+		3F60A2862A3B24EE006CF568 /* NetworkDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F60A2852A3B24EE006CF568 /* NetworkDataFetcher.swift */; };
+		3F74B4DA2A3B535C007514FA /* NewsFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F74B4D92A3B535C007514FA /* NewsFeedCell.swift */; };
+		3F74B4DC2A3B5393007514FA /* NewsFeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F74B4DB2A3B5393007514FA /* NewsFeedCell.xib */; };
 		3F7FCEB32A3A124A00CE353C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7FCEB22A3A124A00CE353C /* AppDelegate.swift */; };
 		3F7FCEB52A3A124A00CE353C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7FCEB42A3A124A00CE353C /* SceneDelegate.swift */; };
-		3F7FCEB72A3A124A00CE353C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7FCEB62A3A124A00CE353C /* ViewController.swift */; };
-		3F7FCEBA2A3A124A00CE353C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F7FCEB82A3A124A00CE353C /* Main.storyboard */; };
+		3F7FCEB72A3A124A00CE353C /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7FCEB62A3A124A00CE353C /* AuthViewController.swift */; };
 		3F7FCEBC2A3A124B00CE353C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F7FCEBB2A3A124B00CE353C /* Assets.xcassets */; };
 		3F7FCEBF2A3A124B00CE353C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F7FCEBD2A3A124B00CE353C /* LaunchScreen.storyboard */; };
+		3F7FCED12A3A201700CE353C /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7FCED02A3A201700CE353C /* AuthService.swift */; };
+		3F7FCED42A3A284100CE353C /* AuthViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F7FCED32A3A284100CE353C /* AuthViewController.storyboard */; };
+		3F7FCED62A3A33FB00CE353C /* VKSdkFramework.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F7FCED52A3A33FB00CE353C /* VKSdkFramework.xcframework */; };
+		3F7FCED72A3A33FB00CE353C /* VKSdkFramework.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3F7FCED52A3A33FB00CE353C /* VKSdkFramework.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3FBCB2CA2A3A475800EC059A /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBCB2C92A3A475800EC059A /* NetworkingService.swift */; };
+		3FBCB2CC2A3A4AAF00EC059A /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBCB2CB2A3A4AAF00EC059A /* API.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		3F7FCECF2A3A1A3E00CE353C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3F7FCED72A3A33FB00CE353C /* VKSdkFramework.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		3F3BA3CF2A3B3249009EE8FC /* NewsFeedPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedPresenter.swift; sourceTree = "<group>"; };
+		3F3BA3D02A3B3249009EE8FC /* NewsFeedWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedWorker.swift; sourceTree = "<group>"; };
+		3F3BA3D12A3B3249009EE8FC /* NewsFeedRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedRouter.swift; sourceTree = "<group>"; };
+		3F3BA3D22A3B3249009EE8FC /* NewsFeedModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedModels.swift; sourceTree = "<group>"; };
+		3F3BA3D32A3B3249009EE8FC /* NewsFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedViewController.swift; sourceTree = "<group>"; };
+		3F3BA3D42A3B3249009EE8FC /* NewsFeedInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedInteractor.swift; sourceTree = "<group>"; };
+		3F3BA3DB2A3B3864009EE8FC /* NewsFeedViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewsFeedViewController.storyboard; sourceTree = "<group>"; };
+		3F60A2822A3B217D006CF568 /* FeedResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedResponse.swift; sourceTree = "<group>"; };
+		3F60A2852A3B24EE006CF568 /* NetworkDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFetcher.swift; sourceTree = "<group>"; };
+		3F74B4D92A3B535C007514FA /* NewsFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedCell.swift; sourceTree = "<group>"; };
+		3F74B4DB2A3B5393007514FA /* NewsFeedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsFeedCell.xib; sourceTree = "<group>"; };
 		3F7FCEAF2A3A124A00CE353C /* VkNewsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VkNewsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F7FCEB22A3A124A00CE353C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F7FCEB42A3A124A00CE353C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3F7FCEB62A3A124A00CE353C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		3F7FCEB92A3A124A00CE353C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3F7FCEB62A3A124A00CE353C /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		3F7FCEBB2A3A124B00CE353C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F7FCEBE2A3A124B00CE353C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3F7FCEC02A3A124B00CE353C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F7FCED02A3A201700CE353C /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		3F7FCED32A3A284100CE353C /* AuthViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AuthViewController.storyboard; sourceTree = "<group>"; };
+		3F7FCED52A3A33FB00CE353C /* VKSdkFramework.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = VKSdkFramework.xcframework; path = Carthage/Build/VKSdkFramework.xcframework; sourceTree = "<group>"; };
+		3FBCB2C92A3A475800EC059A /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
+		3FBCB2CB2A3A4AAF00EC059A /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +76,51 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F7FCED62A3A33FB00CE353C /* VKSdkFramework.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F3BA3CE2A3B3080009EE8FC /* NewsFeed */ = {
+			isa = PBXGroup;
+			children = (
+				3F74B4D82A3B533E007514FA /* Cell */,
+				3F3BA3D32A3B3249009EE8FC /* NewsFeedViewController.swift */,
+				3F3BA3DB2A3B3864009EE8FC /* NewsFeedViewController.storyboard */,
+				3F3BA3D42A3B3249009EE8FC /* NewsFeedInteractor.swift */,
+				3F3BA3CF2A3B3249009EE8FC /* NewsFeedPresenter.swift */,
+				3F3BA3D22A3B3249009EE8FC /* NewsFeedModels.swift */,
+				3F3BA3D02A3B3249009EE8FC /* NewsFeedWorker.swift */,
+				3F3BA3D12A3B3249009EE8FC /* NewsFeedRouter.swift */,
+			);
+			path = NewsFeed;
+			sourceTree = "<group>";
+		};
+		3F60A2842A3B2185006CF568 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3F60A2822A3B217D006CF568 /* FeedResponse.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3F74B4D82A3B533E007514FA /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				3F74B4D92A3B535C007514FA /* NewsFeedCell.swift */,
+				3F74B4DB2A3B5393007514FA /* NewsFeedCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		3F7FCEA62A3A124A00CE353C = {
 			isa = PBXGroup;
 			children = (
 				3F7FCEB12A3A124A00CE353C /* VkNewsApp */,
 				3F7FCEB02A3A124A00CE353C /* Products */,
+				3F7FCEC72A3A190F00CE353C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,13 +137,43 @@
 			children = (
 				3F7FCEB22A3A124A00CE353C /* AppDelegate.swift */,
 				3F7FCEB42A3A124A00CE353C /* SceneDelegate.swift */,
-				3F7FCEB62A3A124A00CE353C /* ViewController.swift */,
-				3F7FCEB82A3A124A00CE353C /* Main.storyboard */,
+				3F7FCED22A3A201D00CE353C /* Services */,
+				3F3BA3CE2A3B3080009EE8FC /* NewsFeed */,
+				3F7FCEDD2A3A3CFA00CE353C /* AuthViewController */,
 				3F7FCEBB2A3A124B00CE353C /* Assets.xcassets */,
 				3F7FCEBD2A3A124B00CE353C /* LaunchScreen.storyboard */,
 				3F7FCEC02A3A124B00CE353C /* Info.plist */,
 			);
 			path = VkNewsApp;
+			sourceTree = "<group>";
+		};
+		3F7FCEC72A3A190F00CE353C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3F7FCED52A3A33FB00CE353C /* VKSdkFramework.xcframework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3F7FCED22A3A201D00CE353C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				3F60A2842A3B2185006CF568 /* Models */,
+				3F7FCED02A3A201700CE353C /* AuthService.swift */,
+				3FBCB2C92A3A475800EC059A /* NetworkingService.swift */,
+				3FBCB2CB2A3A4AAF00EC059A /* API.swift */,
+				3F60A2852A3B24EE006CF568 /* NetworkDataFetcher.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		3F7FCEDD2A3A3CFA00CE353C /* AuthViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3F7FCED32A3A284100CE353C /* AuthViewController.storyboard */,
+				3F7FCEB62A3A124A00CE353C /* AuthViewController.swift */,
+			);
+			path = AuthViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,6 +186,8 @@
 				3F7FCEAB2A3A124A00CE353C /* Sources */,
 				3F7FCEAC2A3A124A00CE353C /* Frameworks */,
 				3F7FCEAD2A3A124A00CE353C /* Resources */,
+				3F7FCEC62A3A174300CE353C /* ShellScript */,
+				3F7FCECF2A3A1A3E00CE353C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -126,35 +237,62 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F7FCEBF2A3A124B00CE353C /* LaunchScreen.storyboard in Resources */,
+				3F7FCED42A3A284100CE353C /* AuthViewController.storyboard in Resources */,
+				3F74B4DC2A3B5393007514FA /* NewsFeedCell.xib in Resources */,
 				3F7FCEBC2A3A124B00CE353C /* Assets.xcassets in Resources */,
-				3F7FCEBA2A3A124A00CE353C /* Main.storyboard in Resources */,
+				3F3BA3DC2A3B3864009EE8FC /* NewsFeedViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3F7FCEC62A3A174300CE353C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/VKSdkFramework.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage outdated --xcode-warnings 2>/dev/null\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3F7FCEAB2A3A124A00CE353C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F7FCEB72A3A124A00CE353C /* ViewController.swift in Sources */,
+				3F60A2832A3B217E006CF568 /* FeedResponse.swift in Sources */,
+				3F3BA3D52A3B3249009EE8FC /* NewsFeedPresenter.swift in Sources */,
+				3F7FCEB72A3A124A00CE353C /* AuthViewController.swift in Sources */,
+				3F3BA3DA2A3B3249009EE8FC /* NewsFeedInteractor.swift in Sources */,
 				3F7FCEB32A3A124A00CE353C /* AppDelegate.swift in Sources */,
+				3FBCB2CA2A3A475800EC059A /* NetworkingService.swift in Sources */,
 				3F7FCEB52A3A124A00CE353C /* SceneDelegate.swift in Sources */,
+				3F60A2862A3B24EE006CF568 /* NetworkDataFetcher.swift in Sources */,
+				3F3BA3D62A3B3249009EE8FC /* NewsFeedWorker.swift in Sources */,
+				3F3BA3D72A3B3249009EE8FC /* NewsFeedRouter.swift in Sources */,
+				3F7FCED12A3A201700CE353C /* AuthService.swift in Sources */,
+				3FBCB2CC2A3A4AAF00EC059A /* API.swift in Sources */,
+				3F3BA3D82A3B3249009EE8FC /* NewsFeedModels.swift in Sources */,
+				3F74B4DA2A3B535C007514FA /* NewsFeedCell.swift in Sources */,
+				3F3BA3D92A3B3249009EE8FC /* NewsFeedViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		3F7FCEB82A3A124A00CE353C /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3F7FCEB92A3A124A00CE353C /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		3F7FCEBD2A3A124B00CE353C /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -289,23 +427,35 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_BITCODE = NO;
+				"EXCLUDED_ARCHS[sdk=*]" = "arm64 armv7 armv7s";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = VkNewsApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS/VKSdkFramework.framework",
+				);
 				MARKETING_VERSION = 1.0;
+				ONLY_ACTIVE_ARCH = YES;
+				"OTHER_LDFLAGS[arch=*]" = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ya.VkNewsApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_WORKSPACE = YES;
 			};
 			name = Debug;
 		};
@@ -316,23 +466,35 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_BITCODE = NO;
+				"EXCLUDED_ARCHS[sdk=*]" = "arm64 armv7 armv7s";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = VkNewsApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS/VKSdkFramework.framework",
+				);
 				MARKETING_VERSION = 1.0;
+				ONLY_ACTIVE_ARCH = YES;
+				"OTHER_LDFLAGS[arch=*]" = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ya.VkNewsApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_WORKSPACE = YES;
 			};
 			name = Release;
 		};
