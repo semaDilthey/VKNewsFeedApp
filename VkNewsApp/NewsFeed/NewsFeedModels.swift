@@ -40,6 +40,18 @@ struct FeedViewModel {
         var shares: String?
         var views: String?
         var iconUrlString: String
+        var photoAttachment: FeedCellPhotoAttachmentViewModel?
+        
+    }
+    
+    struct FeelCellPhotoAttachment: FeedCellPhotoAttachmentViewModel {
+        var photoURLString: String?
+        
+        var width: Int
+        
+        var height: Int
+        
+        
     }
     let cells: [Cell]
 }

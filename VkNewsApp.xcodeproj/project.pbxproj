@@ -27,6 +27,7 @@
 		3F7FCED42A3A284100CE353C /* AuthViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F7FCED32A3A284100CE353C /* AuthViewController.storyboard */; };
 		3F7FCED62A3A33FB00CE353C /* VKSdkFramework.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F7FCED52A3A33FB00CE353C /* VKSdkFramework.xcframework */; };
 		3F7FCED72A3A33FB00CE353C /* VKSdkFramework.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3F7FCED52A3A33FB00CE353C /* VKSdkFramework.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3F83271C2A3C90D900220C02 /* WebImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F83271B2A3C90D900220C02 /* WebImageView.swift */; };
 		3FBCB2CA2A3A475800EC059A /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBCB2C92A3A475800EC059A /* NetworkingService.swift */; };
 		3FBCB2CC2A3A4AAF00EC059A /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBCB2CB2A3A4AAF00EC059A /* API.swift */; };
 /* End PBXBuildFile section */
@@ -67,6 +68,7 @@
 		3F7FCED02A3A201700CE353C /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		3F7FCED32A3A284100CE353C /* AuthViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AuthViewController.storyboard; sourceTree = "<group>"; };
 		3F7FCED52A3A33FB00CE353C /* VKSdkFramework.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = VKSdkFramework.xcframework; path = Carthage/Build/VKSdkFramework.xcframework; sourceTree = "<group>"; };
+		3F83271B2A3C90D900220C02 /* WebImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebImageView.swift; sourceTree = "<group>"; };
 		3FBCB2C92A3A475800EC059A /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
 		3FBCB2CB2A3A4AAF00EC059A /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -140,6 +142,7 @@
 				3F7FCED22A3A201D00CE353C /* Services */,
 				3F3BA3CE2A3B3080009EE8FC /* NewsFeed */,
 				3F7FCEDD2A3A3CFA00CE353C /* AuthViewController */,
+				3F83271A2A3C90C300220C02 /* Helpers */,
 				3F7FCEBB2A3A124B00CE353C /* Assets.xcassets */,
 				3F7FCEBD2A3A124B00CE353C /* LaunchScreen.storyboard */,
 				3F7FCEC02A3A124B00CE353C /* Info.plist */,
@@ -174,6 +177,14 @@
 				3F7FCEB62A3A124A00CE353C /* AuthViewController.swift */,
 			);
 			path = AuthViewController;
+			sourceTree = "<group>";
+		};
+		3F83271A2A3C90C300220C02 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				3F83271B2A3C90D900220C02 /* WebImageView.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,6 +292,7 @@
 				3F7FCEB52A3A124A00CE353C /* SceneDelegate.swift in Sources */,
 				3F60A2862A3B24EE006CF568 /* NetworkDataFetcher.swift in Sources */,
 				3F3BA3D62A3B3249009EE8FC /* NewsFeedWorker.swift in Sources */,
+				3F83271C2A3C90D900220C02 /* WebImageView.swift in Sources */,
 				3F3BA3D72A3B3249009EE8FC /* NewsFeedRouter.swift in Sources */,
 				3F7FCED12A3A201700CE353C /* AuthService.swift in Sources */,
 				3FBCB2CC2A3A4AAF00EC059A /* API.swift in Sources */,
