@@ -6,7 +6,10 @@ protocol NewsFeedPresentationLogic {
 }
 
 class NewsFeedPresenter: NewsFeedPresentationLogic {
+    
     weak var viewController: NewsFeedDisplayLogic?
+    var cellLayoutCalculator: FeedCellLayoutCalculatorProtocol = FeedCellLayoutCalculator()
+    
     // создаем для конвертации даты из форматы юнитекса
     let dateFormatter: DateFormatter = {
         let dt = DateFormatter()
@@ -18,6 +21,7 @@ class NewsFeedPresenter: NewsFeedPresentationLogic {
     func presentData(response: NewsFeed.Model.Response.ResponseType) {
         
         switch response {
+            
 // 4. Преобразовываем feedResponse для отображения прям в интерфейс. В интерфейсе все выглядит как ячейки, а ячейки заполняются в соответствие со структурой Cell структуры FeedViewModel. А информация каждой ячейки уже будет храниться в массиве под названием cells
         case .presentNewsFeed(feed: let feed): // здесь хранится наша data в параметре feed
         
@@ -37,8 +41,12 @@ class NewsFeedPresenter: NewsFeedPresentationLogic {
         let profiles = self.profile(for: feedItem.sourceId, profiles: profiles, groups: groups)
         
         let photoAttachment = self.photoAttachment(feedItem: feedItem)
+        
         let date = Date(timeIntervalSince1970: feedItem.date)
         let dateTitile = dateFormatter.string(from: date)
+        
+        let sizes = cellLayoutCalculator.sizes(postText: feedItem.text, photoAttchmant: photoAttachment)
+        
         return FeedViewModel.Cell.init(name: profiles.name,
                                        date: dateTitile,
                                        text: feedItem.text,
@@ -47,7 +55,8 @@ class NewsFeedPresenter: NewsFeedPresentationLogic {
                                        shares: String(feedItem.reposts?.count ?? 0),
                                        views: String(feedItem.views?.count ?? 0),
                                        iconUrlString: profiles.photo,
-                                       photoAttachment: photoAttachment)
+                                       photoAttachment: photoAttachment,
+                                       sizes: sizes)
     }
     
     private func profile(for sourceId: Int, profiles: [Profile], groups: [Groups]) -> ProfileRepresentable {

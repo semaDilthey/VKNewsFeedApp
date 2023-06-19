@@ -14,7 +14,10 @@ class WebImageView : UIImageView {
     
     func set(imageURL: String?) {
         // функционал позволит закгружать картинки с инета
-        guard let imageURL = imageURL, let url = URL(string: imageURL) else { return }
+        guard let imageURL = imageURL, let url = URL(string: imageURL) else {
+            self.image = nil
+            return
+        }
         
         // проверяем есть ли картинка в кэше
         if let cachedResponse = URLCache.shared.cachedResponse(for: URLRequest(url: url)) {

@@ -25,9 +25,7 @@ class NewsFeedInteractor: NewsFeedBusinessLogic, NewsFeedDataStore {
         case .getNewsFeed:
             fetcher.getFeed { [weak self] (feedResponse) in
                 
-                feedResponse?.groups.map({ (group) in
-                    print("\(group)")
-                })
+
                 
 //3. эти данные из FeedResponse уже передаем в кейс презентера .presentNewsFeed . У этого кейса добавлено ассоциативное значение, чтобы можно было передать это наши данные -> Presenter
                 guard let feedResponse = feedResponse else { return }
