@@ -8,7 +8,14 @@
 import Foundation
 import UIKit
 
+// протокол для делегата кнопки развернуть и 2 разных классов
+protocol NewsFeedCodeCellDelegate: class {
+    func revealPost(for cell: NewsFeedCodeCell)
+}
+
 final class NewsFeedCodeCell: UITableViewCell {
+    
+    weak var delegate: NewsFeedCodeCellDelegate?
     
     static let reuseID = "NewsFeedCodeCell"
     
@@ -37,6 +44,17 @@ final class NewsFeedCodeCell: UITableViewCell {
         return label
     }()
     
+    lazy var moreTextButton: UIButton = {
+        let button = UIButton()
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .medium)
+        button.setTitleColor(UIColor.systemBlue, for: .normal)
+        button.contentHorizontalAlignment = .left
+        button.contentVerticalAlignment = .center
+        button.setTitle("Показать полность...", for: .normal)
+        button.isUserInteractionEnabled = true
+        return button
+    }()
+    
     let postImageView: WebImageView = {
         let imageView = WebImageView()
         return imageView
@@ -50,8 +68,9 @@ final class NewsFeedCodeCell: UITableViewCell {
     // 3rd layer on TopView
     let iconIamgeView : WebImageView = {
         let view = WebImageView()
-  
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.layer.cornerRadius = Constants.topViewHeight / 2
+        view.clipsToBounds = true
         return view
     }()
     
@@ -173,6 +192,8 @@ final class NewsFeedCodeCell: UITableViewCell {
         backgroundColor = .clear
         selectionStyle = .none
         
+        moreTextButton.addTarget(self, action: #selector(moreTextButtonTouch), for: .touchUpInside)
+        
         overlayFirstLayer() // 1 слой
         overlaySecondLayer() // 2 слой
         overlayThirdLayerOnTopView() // 3 слой на ТопВью
@@ -180,10 +201,21 @@ final class NewsFeedCodeCell: UITableViewCell {
         overlayFourthLayerOnBottomViewViews() // 4
     }
     
+    @objc func moreTextButtonTouch() {
+        print("123")
+        delegate?.revealPost(for: self)
+    }
+    
+    override func prepareForReuse() {
+        iconIamgeView.set(imageURL: nil)
+        postImageView.set(imageURL: nil)
+    }
+    
     func set(viewModel: FeedCellViewModel) {
         postLabel.frame = viewModel.sizes.postLabelFrame
         postImageView.frame = viewModel.sizes.attachmentFrame
         bottomView.frame = viewModel.sizes.bottomViewFrame
+        moreTextButton.frame = viewModel.sizes.moreTextButtonFrame
         
         iconIamgeView.set(imageURL: viewModel.iconUrlString)
         nameLabel.text = viewModel.name
@@ -297,12 +329,14 @@ final class NewsFeedCodeCell: UITableViewCell {
         dateLabel.heightAnchor.constraint(equalToConstant: 14).isActive = true
     }
     
-    //MARK: - Second layer on cardView
+    //MARK: - 2nd Second layer on cardView
     private func overlaySecondLayer() {
         cardView.addSubview(topView)
         cardView.addSubview(postLabel)
+        cardView.addSubview(moreTextButton)
         cardView.addSubview(postImageView)
         cardView.addSubview(bottomView)
+        
         
         // topView constraints
         topView.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: 8).isActive = true
@@ -311,11 +345,14 @@ final class NewsFeedCodeCell: UITableViewCell {
         topView.heightAnchor.constraint(equalToConstant: Constants.topViewHeight).isActive = true
          
         //postLabel constraints и тд не требует констрейнтов ибо уже настроен программно
+        //moreTextButton constraints и тд не требует констрейнтов ибо уже настроен программно
+        //postImageView constraints и тд не требует констрейнтов ибо уже настроен программно
+        //bottomView constraints и тд не требует констрейнтов ибо уже настроен программно
     }
     
     //MARK: - First Layer with CardView
     private func overlayFirstLayer() {
-        addSubview(cardView)
+        contentView.addSubview(cardView)
         // cardView constraints
         cardView.fillSuperview(padding: Constants.cardInserts)
     }

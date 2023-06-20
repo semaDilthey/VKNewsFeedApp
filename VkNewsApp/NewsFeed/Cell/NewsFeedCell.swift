@@ -3,7 +3,7 @@
 import Foundation
 import UIKit
 
-// протокол отвечающий за заполнение ячеек
+// протокол отвечающий за визуальное заполнение ячеек. Никакие другие данные для этого не нужны
 protocol FeedCellViewModel {
     var name: String { get }
     var date: String { get }
@@ -25,6 +25,8 @@ protocol FeedCellSizes {
     
     var bottomViewFrame: CGRect { get }
     var totalHieght: CGFloat { get }
+    
+    var moreTextButtonFrame: CGRect { get }
 }
 
 protocol FeedCellPhotoAttachmentViewModel {
@@ -61,6 +63,7 @@ class NewsFeedCell: UITableViewCell {
         iconImageView.set(imageURL: nil)
         postImageView.set(imageURL: nil)
     }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         iconImageView.layer.cornerRadius = iconImageView.frame.width / 2

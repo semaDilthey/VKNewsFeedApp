@@ -7,12 +7,13 @@ protocol NewsFeedDisplayLogic: class {
 
 
 
-class NewsFeedViewController: UIViewController, NewsFeedDisplayLogic {
-    
+class NewsFeedViewController: UIViewController, NewsFeedDisplayLogic, NewsFeedCodeCellDelegate {
+  
   var interactor: NewsFeedBusinessLogic?
   var router: (NSObjectProtocol & NewsFeedRoutingLogic & NewsFeedDataPassing)?
     
     private var feedViewModel = FeedViewModel.init(cells: [])
+   // weak var delegate: NewsFeedCodeCellDelegate?
 
     @IBOutlet weak var table: UITableView!
     
@@ -56,6 +57,16 @@ class NewsFeedViewController: UIViewController, NewsFeedDisplayLogic {
             table.reloadData()
         }
     }
+    
+    //MARK: - Реализуем функцию NewsFeedCodeCellDelegate
+    func revealPost(for cell: NewsFeedCodeCell) {
+        print("5353")
+        guard let indexPath = table.indexPath(for: cell) else { return } // получаем индекс ячейки
+        let cellViewModel = feedViewModel.cells[indexPath.row] // получаем всю всю информацию об этой ячейке
+        
+        interactor?.makeRequest(request: NewsFeed.Model.Request.RequestType.revealPostIds(postId: cellViewModel.postId))
+    }
+    
 }
 
 
@@ -75,6 +86,7 @@ extension NewsFeedViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: NewsFeedCodeCell.reuseID, for: indexPath) as! NewsFeedCodeCell
         let cellViewModel = feedViewModel.cells[indexPath.row]
         cell.set(viewModel: cellViewModel)
+        cell.delegate = self
         return cell
     }
     
@@ -82,10 +94,10 @@ extension NewsFeedViewController: UITableViewDelegate, UITableViewDataSource {
         let cellViewModel = feedViewModel.cells[indexPath.row]
         return cellViewModel.sizes.totalHieght
     }
-    
-
-    
-    
-    
+    // estimatedHeightForRow нужна чтобы границы ячеек таблицы считались корректнее
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        let cellViewModel = feedViewModel.cells[indexPath.row]
+        return cellViewModel.sizes.totalHieght
+    }
 }
 

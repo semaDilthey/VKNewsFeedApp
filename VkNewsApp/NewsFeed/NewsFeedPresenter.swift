@@ -19,14 +19,12 @@ class NewsFeedPresenter: NewsFeedPresentationLogic {
     }()
   
     func presentData(response: NewsFeed.Model.Response.ResponseType) {
-        
-        switch response {
-            
 // 4. Преобразовываем feedResponse для отображения прям в интерфейс. В интерфейсе все выглядит как ячейки, а ячейки заполняются в соответствие со структурой Cell структуры FeedViewModel. А информация каждой ячейки уже будет храниться в массиве под названием cells
-        case .presentNewsFeed(feed: let feed): // здесь хранится наша data в параметре feed
-        
+        switch response {
+        case .presentNewsFeed(feed: let feed, let revealedPostIds): // здесь хранится наша data в параметре feed
+            print(revealedPostIds)
             let cells = feed.items.map { (feedItem) in
-                cellViewModel(from: feedItem, profiles: feed.profiles, groups: feed.groups)
+                cellViewModel(from: feedItem, profiles: feed.profiles, groups: feed.groups, revealedPostIds: revealedPostIds)
             }
             
             let feedViewModel = FeedViewModel.init(cells: cells)
@@ -36,7 +34,7 @@ class NewsFeedPresenter: NewsFeedPresentationLogic {
     
     
     // Заполняем ячейку данными и потом эту ячейку вставляем в функцию PresentData
-    private func cellViewModel(from feedItem: FeedItem, profiles: [Profile], groups: [Groups]) -> FeedViewModel.Cell {
+    private func cellViewModel(from feedItem: FeedItem, profiles: [Profile], groups: [Groups], revealedPostIds: [Int]) -> FeedViewModel.Cell {
         
         let profiles = self.profile(for: feedItem.sourceId, profiles: profiles, groups: groups)
         
@@ -45,7 +43,9 @@ class NewsFeedPresenter: NewsFeedPresentationLogic {
         let date = Date(timeIntervalSince1970: feedItem.date)
         let dateTitile = dateFormatter.string(from: date)
         
-        let sizes = cellLayoutCalculator.sizes(postText: feedItem.text, photoAttchmant: photoAttachment)
+        let isFullSized = revealedPostIds.contains(feedItem.postId)
+        
+        let sizes = cellLayoutCalculator.sizes(postText: feedItem.text, photoAttchmant: photoAttachment, isFullSizedPost: isFullSized)
         
         return FeedViewModel.Cell.init(name: profiles.name,
                                        date: dateTitile,
@@ -56,7 +56,8 @@ class NewsFeedPresenter: NewsFeedPresentationLogic {
                                        views: String(feedItem.views?.count ?? 0),
                                        iconUrlString: profiles.photo,
                                        photoAttachment: photoAttachment,
-                                       sizes: sizes)
+                                       sizes: sizes,
+                                       postId: feedItem.postId)
     }
     
     private func profile(for sourceId: Int, profiles: [Profile], groups: [Groups]) -> ProfileRepresentable {
