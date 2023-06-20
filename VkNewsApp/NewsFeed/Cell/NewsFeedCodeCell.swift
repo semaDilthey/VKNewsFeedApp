@@ -55,6 +55,8 @@ final class NewsFeedCodeCell: UITableViewCell {
         return button
     }()
     
+    let galleryCollectionView = GalleryCollectionView()
+    
     let postImageView: WebImageView = {
         let imageView = WebImageView()
         return imageView
@@ -226,11 +228,20 @@ final class NewsFeedCodeCell: UITableViewCell {
         sharesLabel.text = viewModel.shares
         viewsLabel.text = viewModel.views
         
-        if let photoAttachment = viewModel.photoAttachment {
+        
+        if let photoAttachment = viewModel.photoAttachments.first, viewModel.photoAttachments.count == 1 {
             postImageView.set(imageURL: photoAttachment.photoURLString)
             postImageView.isHidden = false
+            galleryCollectionView.isHidden = true
+            postImageView.frame = viewModel.sizes.attachmentFrame
+        } else if viewModel.photoAttachments.count > 1 {
+            galleryCollectionView.frame = viewModel.sizes.attachmentFrame
+            postImageView.isHidden = true
+            galleryCollectionView.isHidden = false
+            galleryCollectionView.set(photos: viewModel.photoAttachments)
         } else {
             postImageView.isHidden = true
+            galleryCollectionView.isHidden = true
         }
     }
     //MARK: - 4th layer on BottomViewViews
@@ -335,6 +346,7 @@ final class NewsFeedCodeCell: UITableViewCell {
         cardView.addSubview(postLabel)
         cardView.addSubview(moreTextButton)
         cardView.addSubview(postImageView)
+        cardView.addSubview(galleryCollectionView)
         cardView.addSubview(bottomView)
         
         

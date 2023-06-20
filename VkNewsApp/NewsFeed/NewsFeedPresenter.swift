@@ -38,14 +38,14 @@ class NewsFeedPresenter: NewsFeedPresentationLogic {
         
         let profiles = self.profile(for: feedItem.sourceId, profiles: profiles, groups: groups)
         
-        let photoAttachment = self.photoAttachment(feedItem: feedItem)
+        let photoAttachments = self.photoAttachments(feedItem: feedItem)
         
         let date = Date(timeIntervalSince1970: feedItem.date)
         let dateTitile = dateFormatter.string(from: date)
         
         let isFullSized = revealedPostIds.contains(feedItem.postId)
         
-        let sizes = cellLayoutCalculator.sizes(postText: feedItem.text, photoAttchmant: photoAttachment, isFullSizedPost: isFullSized)
+        let sizes = cellLayoutCalculator.sizes(postText: feedItem.text, photoAttchmants: photoAttachments, isFullSizedPost: isFullSized)
         
         return FeedViewModel.Cell.init(name: profiles.name,
                                        date: dateTitile,
@@ -55,7 +55,7 @@ class NewsFeedPresenter: NewsFeedPresentationLogic {
                                        shares: String(feedItem.reposts?.count ?? 0),
                                        views: String(feedItem.views?.count ?? 0),
                                        iconUrlString: profiles.photo,
-                                       photoAttachment: photoAttachment,
+                                       photoAttachments: photoAttachments,
                                        sizes: sizes,
                                        postId: feedItem.postId)
     }
@@ -68,7 +68,8 @@ class NewsFeedPresenter: NewsFeedPresentationLogic {
         }
         return profileRepresentable!
     }
-                                       
+    
+               // из всех фоток к опр посту выбирает первую и возвращает данные
      private func photoAttachment(feedItem: FeedItem) -> FeedViewModel.FeelCellPhotoAttachment? {
             guard let photos = feedItem.attachments?.compactMap({ (attachment) in
                 attachment.photo
@@ -77,4 +78,13 @@ class NewsFeedPresenter: NewsFeedPresentationLogic {
             }
             return FeedViewModel.FeelCellPhotoAttachment.init(photoURLString: firstPhoto.srcBIG, width: firstPhoto.width, height: firstPhoto.height)
         }
+    
+    private func photoAttachments(feedItem: FeedItem) -> [FeedViewModel.FeelCellPhotoAttachment] {
+        guard let attachments = feedItem.attachments else { return [] }
+        
+        return attachments.compactMap( { (attachment) -> FeedViewModel.FeelCellPhotoAttachment? in
+            guard let photo = attachment.photo else { return nil }
+            return FeedViewModel.FeelCellPhotoAttachment.init(photoURLString: photo.srcBIG, width: photo.width, height: photo.height)
+        })
+    }
 }

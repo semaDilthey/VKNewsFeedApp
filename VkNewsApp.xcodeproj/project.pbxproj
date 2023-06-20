@@ -27,6 +27,8 @@
 		3F7FCED42A3A284100CE353C /* AuthViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F7FCED32A3A284100CE353C /* AuthViewController.storyboard */; };
 		3F7FCED62A3A33FB00CE353C /* VKSdkFramework.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F7FCED52A3A33FB00CE353C /* VKSdkFramework.xcframework */; };
 		3F7FCED72A3A33FB00CE353C /* VKSdkFramework.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3F7FCED52A3A33FB00CE353C /* VKSdkFramework.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3F831F942A425C0D00706EEC /* GalleryCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F831F932A425C0C00706EEC /* GalleryCollectionView.swift */; };
+		3F831F962A425D0000706EEC /* GalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F831F952A425D0000706EEC /* GalleryCollectionViewCell.swift */; };
 		3F83271C2A3C90D900220C02 /* WebImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F83271B2A3C90D900220C02 /* WebImageView.swift */; };
 		3F9C850A2A40CF0C0037EA22 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9C85092A40CF0C0037EA22 /* Constants.swift */; };
 		3FBCB2CA2A3A475800EC059A /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBCB2C92A3A475800EC059A /* NetworkingService.swift */; };
@@ -73,6 +75,8 @@
 		3F7FCED02A3A201700CE353C /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		3F7FCED32A3A284100CE353C /* AuthViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AuthViewController.storyboard; sourceTree = "<group>"; };
 		3F7FCED52A3A33FB00CE353C /* VKSdkFramework.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = VKSdkFramework.xcframework; path = Carthage/Build/VKSdkFramework.xcframework; sourceTree = "<group>"; };
+		3F831F932A425C0C00706EEC /* GalleryCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionView.swift; sourceTree = "<group>"; };
+		3F831F952A425D0000706EEC /* GalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewCell.swift; sourceTree = "<group>"; };
 		3F83271B2A3C90D900220C02 /* WebImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebImageView.swift; sourceTree = "<group>"; };
 		3F9C85092A40CF0C0037EA22 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3FBCB2C92A3A475800EC059A /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
@@ -98,6 +102,7 @@
 		3F3BA3CE2A3B3080009EE8FC /* NewsFeed */ = {
 			isa = PBXGroup;
 			children = (
+				3F831F922A425BF800706EEC /* GalleryView */,
 				3F74B4D82A3B533E007514FA /* Cell */,
 				3F3BA3D32A3B3249009EE8FC /* NewsFeedViewController.swift */,
 				3F3BA3DB2A3B3864009EE8FC /* NewsFeedViewController.storyboard */,
@@ -190,6 +195,15 @@
 				3F7FCEB62A3A124A00CE353C /* AuthViewController.swift */,
 			);
 			path = AuthViewController;
+			sourceTree = "<group>";
+		};
+		3F831F922A425BF800706EEC /* GalleryView */ = {
+			isa = PBXGroup;
+			children = (
+				3F831F932A425C0C00706EEC /* GalleryCollectionView.swift */,
+				3F831F952A425D0000706EEC /* GalleryCollectionViewCell.swift */,
+			);
+			path = GalleryView;
 			sourceTree = "<group>";
 		};
 		3F83271A2A3C90C300220C02 /* Helpers */ = {
@@ -302,6 +316,7 @@
 				3FC8F7FF2A4090C4000DEE56 /* String + Height.swift in Sources */,
 				3FC6D0DB2A40A57F00D130BB /* NewsFeedCodeCell.swift in Sources */,
 				3F3BA3D52A3B3249009EE8FC /* NewsFeedPresenter.swift in Sources */,
+				3F831F962A425D0000706EEC /* GalleryCollectionViewCell.swift in Sources */,
 				3F7FCEB72A3A124A00CE353C /* AuthViewController.swift in Sources */,
 				3F3BA3DA2A3B3249009EE8FC /* NewsFeedInteractor.swift in Sources */,
 				3F7FCEB32A3A124A00CE353C /* AppDelegate.swift in Sources */,
@@ -317,6 +332,7 @@
 				3FBCB2CC2A3A4AAF00EC059A /* API.swift in Sources */,
 				3F3BA3D82A3B3249009EE8FC /* NewsFeedModels.swift in Sources */,
 				3F74B4DA2A3B535C007514FA /* NewsFeedCell.swift in Sources */,
+				3F831F942A425C0D00706EEC /* GalleryCollectionView.swift in Sources */,
 				3F3BA3D92A3B3249009EE8FC /* NewsFeedViewController.swift in Sources */,
 				3FC8F7FD2A4080F3000DEE56 /* NewsFeedCellLayoutCalculator.swift in Sources */,
 			);
