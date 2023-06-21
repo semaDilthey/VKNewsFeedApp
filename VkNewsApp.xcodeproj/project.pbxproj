@@ -29,6 +29,7 @@
 		3F7FCED72A3A33FB00CE353C /* VKSdkFramework.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3F7FCED52A3A33FB00CE353C /* VKSdkFramework.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3F831F942A425C0D00706EEC /* GalleryCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F831F932A425C0C00706EEC /* GalleryCollectionView.swift */; };
 		3F831F962A425D0000706EEC /* GalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F831F952A425D0000706EEC /* GalleryCollectionViewCell.swift */; };
+		3F831F982A4321AB00706EEC /* RowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F831F972A4321AB00706EEC /* RowLayout.swift */; };
 		3F83271C2A3C90D900220C02 /* WebImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F83271B2A3C90D900220C02 /* WebImageView.swift */; };
 		3F9C850A2A40CF0C0037EA22 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9C85092A40CF0C0037EA22 /* Constants.swift */; };
 		3FBCB2CA2A3A475800EC059A /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBCB2C92A3A475800EC059A /* NetworkingService.swift */; };
@@ -77,6 +78,7 @@
 		3F7FCED52A3A33FB00CE353C /* VKSdkFramework.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = VKSdkFramework.xcframework; path = Carthage/Build/VKSdkFramework.xcframework; sourceTree = "<group>"; };
 		3F831F932A425C0C00706EEC /* GalleryCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionView.swift; sourceTree = "<group>"; };
 		3F831F952A425D0000706EEC /* GalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewCell.swift; sourceTree = "<group>"; };
+		3F831F972A4321AB00706EEC /* RowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowLayout.swift; sourceTree = "<group>"; };
 		3F83271B2A3C90D900220C02 /* WebImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebImageView.swift; sourceTree = "<group>"; };
 		3F9C85092A40CF0C0037EA22 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3FBCB2C92A3A475800EC059A /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 		3F831F922A425BF800706EEC /* GalleryView */ = {
 			isa = PBXGroup;
 			children = (
+				3F831F972A4321AB00706EEC /* RowLayout.swift */,
 				3F831F932A425C0C00706EEC /* GalleryCollectionView.swift */,
 				3F831F952A425D0000706EEC /* GalleryCollectionViewCell.swift */,
 			);
@@ -312,6 +315,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F831F982A4321AB00706EEC /* RowLayout.swift in Sources */,
 				3F60A2832A3B217E006CF568 /* FeedResponse.swift in Sources */,
 				3FC8F7FF2A4090C4000DEE56 /* String + Height.swift in Sources */,
 				3FC6D0DB2A40A57F00D130BB /* NewsFeedCodeCell.swift in Sources */,
