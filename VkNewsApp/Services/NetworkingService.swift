@@ -49,7 +49,7 @@ final class NetworkService: Networking {
         var components = URLComponents()
         components.scheme = API.scheme
         components.host = API.host
-        components.path = API.newsFeed
+        components.path = path
         components.queryItems = params.map{ URLQueryItem(name: $0, value: $1) } // собирает последовательность в адрес, состояющую сначала из пост&фото, потом идет токен и затем версия
         
         return components.url! // собираетсся из предыдущих частей воедино

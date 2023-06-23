@@ -13,6 +13,8 @@ struct FeedResponse: Decodable {
     var items: [FeedItem]
     var profiles: [Profile]
     var groups: [Groups]
+    
+    var nextFrom : String?
 }
 
 struct FeedItem: Decodable {

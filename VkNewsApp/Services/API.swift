@@ -9,4 +9,6 @@ struct API {
     static let host = "api.vk.com" // постоянный адрес хоста
     static let version = "5.131" // версия постоянна
     static let newsFeed = "/method/newsfeed.get" // путь к новостям с документации ВК.  Возвращает данные, необходимые для показа списка новостей для текущего пользователя.
+    
+    static let user = "/method/users.get"
 }

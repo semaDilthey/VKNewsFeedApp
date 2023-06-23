@@ -16,18 +16,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zur-ut-6Id" customClass="GradientView" customModule="VkNewsApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemRedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                        <color key="value" systemColor="systemOrangeColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                        <color key="value" systemColor="systemTealColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="mpV-DG-dqK">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Zur-ut-6Id" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="AG7-dW-6ET"/>
                             <constraint firstAttribute="bottom" secondItem="mpV-DG-dqK" secondAttribute="bottom" id="EXd-JV-yG2"/>
                             <constraint firstItem="mpV-DG-dqK" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Laa-x6-09t"/>
+                            <constraint firstItem="Zur-ut-6Id" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="R71-WF-1fn"/>
+                            <constraint firstItem="Zur-ut-6Id" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="SgX-wd-XUW"/>
                             <constraint firstItem="mpV-DG-dqK" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="dqC-05-syl"/>
                             <constraint firstItem="mpV-DG-dqK" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="egK-p2-dgd"/>
+                            <constraint firstItem="Zur-ut-6Id" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="h5g-Ip-cl9"/>
                         </constraints>
                     </view>
                     <connections>
@@ -43,8 +59,14 @@
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemPurpleColor">
-            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -15,9 +15,13 @@ protocol AuthServiceDelegate: class /*class чтобы в будущем изб�
 class AuthService: NSObject, VKSdkDelegate, VKSdkUIDelegate {
     
     weak var delegate: AuthServiceDelegate?
-    
+    // token от вк
     var token: String? {
         return VKSdk.accessToken().accessToken
+    }
+    
+    var userId: String? {
+        return VKSdk.accessToken().userId
     }
     
     private let appId = "51676556" // id вк из приложения

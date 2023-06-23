@@ -35,12 +35,20 @@ final class NewsFeedCodeCell: UITableViewCell {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
+
     
-    let postLabel: UILabel = {
-        let label = UILabel()
-        label.numberOfLines = 0
+    let postLabel: UITextView = {
+        let label = UITextView()
         label.font = Constants.postLabelFont
+        label.isScrollEnabled = false
+        label.isSelectable = true
+        label.isUserInteractionEnabled = true
+        label.isEditable = false
+        label.backgroundColor = .clear
         label.textColor = .black
+        label.dataDetectorTypes = UIDataDetectorTypes.all // выбираем чтобы ссылки выделялись и всякие номера телефона
+        let padding = label.textContainer.lineFragmentPadding
+        label.textContainerInset = UIEdgeInsets.init(top: 0, left: -padding, bottom: 0, right: -padding)
         return label
     }()
     

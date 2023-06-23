@@ -12,11 +12,20 @@ class NewsFeedViewController: UIViewController, NewsFeedDisplayLogic, NewsFeedCo
   var interactor: NewsFeedBusinessLogic?
   var router: (NSObjectProtocol & NewsFeedRoutingLogic & NewsFeedDataPassing)?
     
-    private var feedViewModel = FeedViewModel.init(cells: [])
+    private var feedViewModel = FeedViewModel.init(cells: [], footerTitle: nil)
    // weak var delegate: NewsFeedCodeCellDelegate?
 
     @IBOutlet weak var table: UITableView!
     
+    private var titleView = TitleView()
+    
+    private lazy var footerView = FooterView()
+    
+    private var refreshControl : UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        return refreshControl
+    }()
   // MARK: Setup
   
   private func setup() {
@@ -37,17 +46,49 @@ class NewsFeedViewController: UIViewController, NewsFeedDisplayLogic, NewsFeedCo
   override func viewDidLoad() {
     super.viewDidLoad()
       setup()
+      setupTopBars()
+      setupTable()
       
-      table.register(UINib(nibName: "NewsFeedCell", bundle: nil), forCellReuseIdentifier: NewsFeedCell.reuseID)
-      table.register(NewsFeedCodeCell.self, forCellReuseIdentifier: NewsFeedCodeCell.reuseID)
-      table.separatorStyle = .none
-      table.backgroundColor = .clear
-      view.backgroundColor = .systemMint
-      table.delegate = self
-      table.dataSource = self
      
       interactor?.makeRequest(request: .getNewsFeed) // 1. Передаем интерактору, что хотим получать данные для отображение ленты -> идем в interactor
+      interactor?.makeRequest(request: .getUser) // передаем тож самое интерактору, но уже для получения картинки профиля
   }
+    
+    private func setupTable() {
+        
+        let topInset: CGFloat = 8
+        table.contentInset.top = topInset
+        table.separatorStyle = .none
+        table.backgroundColor = .clear
+       
+        table.register(UINib(nibName: "NewsFeedCell", bundle: nil), forCellReuseIdentifier: NewsFeedCell.reuseID)
+        table.register(NewsFeedCodeCell.self, forCellReuseIdentifier: NewsFeedCodeCell.reuseID)
+        
+        table.delegate = self
+        table.dataSource = self
+        
+        table.addSubview(refreshControl)
+        table.tableFooterView = footerView
+    }
+    
+    private func setupTopBars() {
+        let topBar = UIView(frame: UIApplication.shared.statusBarFrame)
+        topBar.backgroundColor = .white
+        topBar.layer.shadowColor = UIColor.black.cgColor
+        topBar.layer.shadowOpacity = 0.3
+        topBar.layer.shadowOffset = CGSize.zero
+        topBar.layer.shadowRadius = 8
+        self.view.addSubview(topBar)
+        
+        self.navigationController?.hidesBarsOnSwipe = true // скрывает топ бар когда листаем ленту вниз и появляется когда листаем вверх
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationItem.titleView = titleView
+    }
+    
+    @objc private func refresh() {
+        print("hello")
+        interactor?.makeRequest(request: NewsFeed.Model.Request.RequestType.getNewsFeed)
+    }
 
     
     func displayData(viewModel: NewsFeed.Model.ViewModel.ViewModelData) {
@@ -55,6 +96,21 @@ class NewsFeedViewController: UIViewController, NewsFeedDisplayLogic, NewsFeedCo
          case .displayNewsFeed(feedViewModel: let feedViewModel):
             self.feedViewModel = feedViewModel
             table.reloadData()
+            refreshControl.endRefreshing()
+            footerView.setTitle(feedViewModel.footerTitle)
+        case .displayUver(userViewModel: let userViewModel):
+            titleView.set(userViewModel: userViewModel)
+        case .displayFooterLoader:
+            footerView.showLoader()
+        }
+    }
+    
+    
+    
+    // метод что-то делает когда на каком-то моменте прекратили листать
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if scrollView.contentOffset.y > scrollView.contentSize.height / 1.1 {
+            interactor?.makeRequest(request: NewsFeed.Model.Request.RequestType.getNextBatch)
         }
     }
     
